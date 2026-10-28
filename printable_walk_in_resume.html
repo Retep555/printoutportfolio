@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Peter Yuan - Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* ── A4 PRINT-OPTIMIZED STYLES ── */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #ffffff;
+    color: #1f2937;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER WITH DARK HERO COLOR BLOCK (EYE-CATCHING) ── */
+  .header {
+    background: #111827;
+    color: #ffffff;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #22c55e;
+  }
+
+  .header-main h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .header-main .subtitle {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #f59e0b;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .header-contacts {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 8.5pt;
+    color: #d1d5db;
+  }
+
+  .header-contacts span {
+    display: flex;
+    align-items: center;
+  }
+
+  /* QR CODE STYLING FOR PRINT */
+  .header-qr {
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 8px;
+    text-align: center;
+    width: 82px;
+  }
+
+  .header-qr img {
+    width: 70px;
+    height: 70px;
+    display: block;
+    object-fit: contain;
+  }
+
+  .header-qr-text {
+    font-size: 6pt;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── MAIN CONTENT CONTAINER ── */
+  .content {
+    padding: 20px 32px 24px;
+  }
+
+  /* ── QUICK WALK-IN HIGHLIGHTS GRID ── */
+  .walkin-banner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+  }
+
+  .banner-item {
+    border-right: 1px solid #e2e8f0;
+    padding-right: 8px;
+  }
+
+  .banner-item:last-child {
+    border-right: none;
+  }
+
+  .banner-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.05em;
+  }
+
+  .banner-val {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 2px;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #0f172a;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  .section {
+    margin-bottom: 16px;
+  }
+
+  /* ── SUMMARY / PITCH ── */
+  .summary-p {
+    font-size: 9pt;
+    color: #334155;
+    line-height: 1.5;
+  }
+
+  /* ── SKILLS TAGS ── */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-pill {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 8pt;
+    font-weight: 600;
+  }
+
+  .skill-pill.core {
+    background: #fef3c7;
+    border-color: #fde68a;
+    color: #92400e;
+  }
+
+  /* ── WORK EXPERIENCE ── */
+  .job-block {
+    margin-bottom: 12px;
+  }
+
+  .job-header-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .job-title {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .job-company {
+    font-size: 9pt;
+    font-weight: 600;
+    color: #d97706;
+  }
+
+  .job-date {
+    font-size: 8pt;
+    font-weight: 600;
+    color: #64748b;
+  }
+
+  .job-bullets {
+    list-style: none;
+    margin-top: 4px;
+    padding-left: 0;
+  }
+
+  .job-bullets li {
+    font-size: 8.5pt;
+    color: #334155;
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 3px;
+  }
+
+  .job-bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #f59e0b;
+    font-weight: bold;
+  }
+
+  /* ── TWO COLUMN FOOTER (EDUCATION & OTHER) ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .edu-title {
+    font-weight: 700;
+    font-size: 9pt;
+    color: #0f172a;
+  }
+
+  .edu-sub {
+    font-size: 8pt;
+    color: #64748b;
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-main">
+      <h1>PETER YUAN</h1>
+      <div class="subtitle">Cafe All-Rounder / Barista &amp; Kitchen Hand</div>
+      <div class="header-contacts">
+        <span>📍 Flemington VIC 3031</span>
+        <span>📱                    </span>
+        <span>✉️ peteryuan08@gmail.com</span>
+      </div>
+    </div>
+    
+    <!-- QR CODE BLOCK -->
+    <div class="header-qr">
+      <!-- 讀取與 HTML 檔案放在同一資料夾下的 yhw_ENportfolioQRcode.png -->
+      <img src="yhw_ENportfolioQRcode.png" alt="Scan Portfolio QR" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://peteryuan.github.io'">
+      <div class="header-qr-text">Scan Portfolio</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- FAST WALK-IN INFO BANNER (FOR MANAGERS) -->
+    <div class="walkin-banner">
+      <div class="banner-item">
+        <div class="banner-label">Visa Status</div>
+        <div class="banner-val">WHV 417 (Full Work)</div>
+      </div>
+      <div class="banner-item">
+        <div class="banner-label">Availability</div>
+        <div class="banner-val">Immediate (7 Days)</div>
+      </div>
+      <div class="banner-item">
+        <div class="banner-label">English Level</div>
+        <div class="banner-val">Fluent (TOEIC 895)</div>
+      </div>
+      <div class="banner-item">
+        <div class="banner-label">Trial Ready</div>
+        <div class="banner-val">Yes (Any Shift)</div>
+      </div>
+    </div>
+
+    <!-- SUMMARY (ALIGNS WITH 30-SEC PITCH) -->
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <p class="summary-p">
+        Energetic and efficient <strong>Cafe All-Rounder / Barista &amp; Kitchen Hand</strong> with strong hands-on experience in high-volume Taiwanese cafes. Proven skill in <strong>espresso dial-in, milk steaming, and speed latte art</strong>, combined with hot-line cooking and precise knife work (avocado styling, meat prep). Known for fast ticket pacing, hygiene control, and proactive adaptability.
+      </p>
+    </div>
+
+    <!-- CORE SKILLS -->
+    <div class="section">
+      <div class="section-title">Skills &amp; Capabilities</div>
+      <div class="skills-grid">
+        <span class="skill-pill core">Espresso Dial-in</span>
+        <span class="skill-pill core">Layered Latte Art</span>
+        <span class="skill-pill core">Line Prep &amp; Cooking</span>
+        <span class="skill-pill">Manual Pour-over</span>
+        <span class="skill-pill">Knife Skills &amp; Avocado Styling</span>
+        <span class="skill-pill">Food Safety &amp; Wash-up</span>
+        <span class="skill-pill">POS &amp; Cash Handling</span>
+        <span class="skill-pill">Shift Management</span>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-title">Work Experience</div>
+
+      <div class="job-block">
+        <div class="job-header-line">
+          <div>
+            <span class="job-title">Kitchen Hand &amp; Line Prep Cook</span>
+            <span class="job-company"> · Avocado Coffee (Taiwan)</span>
+          </div>
+          <span class="job-date">Sep 2026 – Oct 2026</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Prepared gourmet brunch dishes, open toasts, pasta, and egg dishes in high-volume rushes.</li>
+          <li>Handled precision avocado knife styling, meat trimming, sous-vide prep, and kitchen sanitation.</li>
+        </ul>
+      </div>
+
+      <div class="job-block">
+        <div class="job-header-line">
+          <div>
+            <span class="job-title">Shift Lead &amp; Assistant Manager</span>
+            <span class="job-company"> · Milksha (Taiwan)</span>
+          </div>
+          <span class="job-date">May 2026 – Sep 2026</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Managed floor pace, staff shift allocation, inventory ordering, and hygiene compliance.</li>
+        </ul>
+      </div>
+
+      <div class="job-block">
+        <div class="job-header-line">
+          <div>
+            <span class="job-title">Lead Barista &amp; Cafe All-Rounder</span>
+            <span class="job-company"> · 2Gather Cafe (Taiwan)</span>
+          </div>
+          <span class="job-date">Nov 2025 – Apr 2026</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Conducted daily grinder calibration, espresso dial-in, latte art, and pour-over service.</li>
+          <li>Baked in-house desserts (Basque cheesecakes) and optimized POS entry workflow.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TWO COLUMNS: EDUCATION & HIGHLIGHTS -->
+    <div class="two-col">
+      <div>
+        <div class="section-title">Education</div>
+        <div class="edu-title">Bachelor of Business Administration</div>
+        <div class="edu-sub">National Chung Cheng University (2020 – 2024)</div>
+      </div>
+      <div>
+        <div class="section-title">Key Advantages</div>
+        <div class="edu-title">Flemington Local Resident</div>
+        <div class="edu-sub">Easy commute to CBD &amp; Northern Suburbs</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
