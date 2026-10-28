@@ -2,387 +2,423 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Peter Yuan - Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peter Yuan - Resume & Portfolio (2-Page Printable)</title>
 <style>
-  /* ── A4 PRINT-OPTIMIZED STYLES ── */
-  @page {
-    size: A4 portrait;
-    margin: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
   body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: #ffffff;
-    color: #1f2937;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #111;
+    background: #e5e5e5;
+    line-height: 1.35;
     font-size: 9.5pt;
-    line-height: 1.45;
+  }
+
+  /* 標準 A4 頁面設定 */
+  .page {
     width: 210mm;
     height: 297mm;
-    padding: 0;
-    margin: 0 auto;
+    padding: 10mm 12mm;
+    margin: 10px auto;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
 
-  /* ── HEADER WITH DARK HERO COLOR BLOCK (EYE-CATCHING) ── */
-  .header {
-    background: #111827;
-    color: #ffffff;
-    padding: 24px 32px;
+  /* 強制分頁：正面與背面獨立 */
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* ── 頁面 1：正面履歷 ── */
+  header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 4px solid #22c55e;
+    align-items: flex-start;
+    border-bottom: 2px solid #111;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
   }
-
-  .header-main h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 24pt;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #ffffff;
-    line-height: 1.1;
-  }
-
-  .header-main .subtitle {
-    font-size: 11pt;
-    font-weight: 600;
-    color: #f59e0b;
-    margin-top: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .header-contacts {
-    display: flex;
-    gap: 16px;
-    margin-top: 10px;
-    font-size: 8.5pt;
-    color: #d1d5db;
-  }
-
-  .header-contacts span {
+  .header-left h1 { font-size: 22pt; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 2px; }
+  .header-left .subtitle { font-size: 10.5pt; font-weight: 700; color: #2563eb; }
+  .header-right { text-align: right; font-size: 8.5pt; color: #333; line-height: 1.35; }
+  
+  .qr-section {
     display: flex;
     align-items: center;
-  }
-
-  /* QR CODE STYLING FOR PRINT */
-  .header-qr {
-    background: #ffffff;
-    padding: 6px;
-    border-radius: 8px;
-    text-align: center;
-    width: 82px;
-  }
-
-  .header-qr img {
-    width: 70px;
-    height: 70px;
-    display: block;
-    object-fit: contain;
-  }
-
-  .header-qr-text {
-    font-size: 6pt;
-    font-weight: 700;
-    color: #111827;
-    margin-top: 2px;
-    text-transform: uppercase;
-  }
-
-  /* ── MAIN CONTENT CONTAINER ── */
-  .content {
-    padding: 20px 32px 24px;
-  }
-
-  /* ── QUICK WALK-IN HIGHLIGHTS GRID ── */
-  .walkin-banner {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 10px 14px;
-    margin-bottom: 18px;
-  }
-
-  .banner-item {
-    border-right: 1px solid #e2e8f0;
-    padding-right: 8px;
-  }
-
-  .banner-item:last-child {
-    border-right: none;
-  }
-
-  .banner-label {
-    font-size: 6.5pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #64748b;
-    letter-spacing: 0.05em;
-  }
-
-  .banner-val {
-    font-size: 8.5pt;
-    font-weight: 700;
-    color: #0f172a;
-    margin-top: 2px;
-  }
-
-  /* ── SECTION HEADINGS ── */
-  .section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 11pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #0f172a;
-    letter-spacing: 0.05em;
-    border-bottom: 2px solid #0f172a;
-    padding-bottom: 3px;
-    margin-bottom: 10px;
-  }
-
-  .section {
-    margin-bottom: 16px;
-  }
-
-  /* ── SUMMARY / PITCH ── */
-  .summary-p {
-    font-size: 9pt;
-    color: #334155;
-    line-height: 1.5;
-  }
-
-  /* ── SKILLS TAGS ── */
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .skill-pill {
-    background: #f1f5f9;
     border: 1px solid #cbd5e1;
-    color: #1e293b;
-    padding: 4px 8px;
+    padding: 6px 10px;
+    margin-bottom: 8px;
     border-radius: 4px;
-    font-size: 8pt;
-    font-weight: 600;
+  }
+  .qr-section img { width: 42px; height: 42px; display: block; }
+  .qr-text h4 { font-size: 9pt; font-weight: 700; color: #0f172a; margin-bottom: 1px; }
+  .qr-text p { font-size: 8pt; color: #475569; }
+
+  .summary {
+    font-size: 9pt;
+    color: #334155;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    background: #fafafa;
+    padding: 6px 8px;
+    border-left: 3px solid #0f172a;
   }
 
-  .skill-pill.core {
-    background: #fef3c7;
-    border-color: #fde68a;
-    color: #92400e;
-  }
-
-  /* ── WORK EXPERIENCE ── */
-  .job-block {
-    margin-bottom: 12px;
-  }
-
-  .job-header-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  .job-title {
-    font-size: 9.5pt;
+  section { margin-bottom: 8px; }
+  h2 {
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1.5px solid #111;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
     font-weight: 700;
     color: #0f172a;
   }
 
-  .job-company {
-    font-size: 9pt;
-    font-weight: 600;
-    color: #d97706;
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 8px;
   }
-
-  .job-date {
-    font-size: 8pt;
-    font-weight: 600;
-    color: #64748b;
+  .strength-card {
+    background: #f1f5f9;
+    border-radius: 4px;
+    padding: 6px 8px;
+    border: 1px solid #e2e8f0;
   }
+  .strength-card h3 { font-size: 8.5pt; font-weight: 700; color: #0f172a; margin-bottom: 2px; }
+  .strength-card p { font-size: 7.5pt; color: #475569; line-height: 1.3; }
 
-  .job-bullets {
-    list-style: none;
-    margin-top: 4px;
-    padding-left: 0;
-  }
-
-  .job-bullets li {
-    font-size: 8.5pt;
-    color: #334155;
-    position: relative;
-    padding-left: 12px;
-    margin-bottom: 3px;
-  }
-
-  .job-bullets li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #f59e0b;
-    font-weight: bold;
-  }
-
-  /* ── TWO COLUMN FOOTER (EDUCATION & OTHER) ── */
-  .two-col {
+  .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 3px 16px;
+    font-size: 8.5pt;
   }
+  .skill-row span:first-child { font-weight: 700; color: #0f172a; }
 
-  .edu-title {
+  .job { margin-bottom: 6px; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
     font-weight: 700;
     font-size: 9pt;
     color: #0f172a;
   }
+  .job-subheader {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: #475569;
+    margin-bottom: 2px;
+    font-style: italic;
+  }
+  ul { padding-left: 14px; font-size: 8.5pt; color: #334155; }
+  li { margin-bottom: 1px; }
 
-  .edu-sub {
+  /* ── 頁面 2：背面 10 張作品集網格 (2欄 × 5行) ── */
+  .portfolio-header {
+    text-align: center;
+    border-bottom: 2px solid #111;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+  }
+  .portfolio-header h2 {
+    border: none;
+    font-size: 14pt;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #0f172a;
+  }
+  .portfolio-header p {
     font-size: 8pt;
     color: #64748b;
+  }
+
+  .gallery-grid-10 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 6px;
+    height: 258mm; /* 精準填滿 A4 背面不留白 */
+  }
+
+  .gallery-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    background: #fff;
+  }
+
+  .gallery-card img {
+    width: 42%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-card-info {
+    padding: 6px 8px;
+    background: #f8fafc;
+    width: 58%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .gallery-card-title {
+    font-size: 8.2pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1px;
+  }
+
+  .gallery-card-desc {
+    font-size: 7.2pt;
+    color: #64748b;
+    line-height: 1.25;
+  }
+
+  @media print {
+    body { background: none; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 210mm;
+      height: 297mm;
+      padding: 10mm 12mm;
+    }
+    .page-break { page-break-before: always; }
   }
 </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-main">
-      <h1>PETER YUAN</h1>
+<!-- ════════════════ PAGE 1: RESUME (正面：個人資訊與經歷) ════════════════ -->
+<div class="page">
+  <header>
+    <div class="header-left">
+      <h1>Peter Yuan</h1>
       <div class="subtitle">Cafe All-Rounder / Barista &amp; Kitchen Hand</div>
-      <div class="header-contacts">
-        <span>📍 Flemington VIC 3031 </span>
-        <div>📞 Phone: <span style="display:inline-block; width: 140px; border-bottom: 1px solid #333;"></span></div>
-        <span>✉️ peteryuan08@gmail.com</span>
+    </div>
+    <div class="header-right">
+      <div>📍 7 Arena Cl, Flemington VIC 3031</div>
+      <div>📞 Phone: 04____ ____ ____</div>
+      <div>📧 peteryuan08@gmail.com</div>
+      <div>🇦🇺 Working Holiday Visa (Full Rights)</div>
+    </div>
+  </header>
+
+  <div class="qr-section">
+    <img src="./yhw_ENportfolioQRcode.png" alt="QR Code" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://retep555.github.io/Barista-Profolio/'">
+    <div class="qr-text">
+      <h4>Scan for Online Interactive Portfolio</h4>
+      <p>Scan to check high-res video demos and mobile-optimized photo galleries.</p>
+    </div>
+  </div>
+
+  <div class="summary">
+    Versatile and energetic Cafe All-Rounder with proven hands-on experience in high-volume Taiwanese specialty cafes. Expert in espresso dial-in, milk steaming, line prep, intricate knife work (avocado styling), and dessert baking. Ready for immediate trial shifts across Melbourne.
+  </div>
+
+  <section>
+    <h2>Core Strengths</h2>
+    <div class="strengths-grid">
+      <div class="strength-card">
+        <h3>⚡ Coffee &amp; Dial-in</h3>
+        <p>Consistent espresso extraction, fast ticket handling, and clean latte art free pours.</p>
+      </div>
+      <div class="strength-card">
+        <h3>🔪 Precision Kitchen</h3>
+        <p>Skilled in hot line prep, egg dishes, open toasts, pasta, and delicate avocado roses.</p>
+      </div>
+      <div class="strength-card">
+        <h3>🍰 In-house Baking</h3>
+        <p>Experienced in baking Basque cheesecakes, chiffon cakes, and counter desserts.</p>
       </div>
     </div>
+  </section>
+
+  <section>
+    <h2>Skills &amp; Qualifications</h2>
+    <div class="skills-grid">
+      <div class="skill-row"><span>Coffee Bar:</span> Dial-in, Latte Art, Milk Steaming, Pour-Over</div>
+      <div class="skill-row"><span>Kitchen Hand:</span> Line Prep, Hot Line, Precision Knife Work</div>
+      <div class="skill-row"><span>Baking &amp; Pastry:</span> Cheesecakes, Chiffons, Dessert Decor</div>
+      <div class="skill-row"><span>Operations:</span> POS Cashier, Inventory, Fast Wash-up</div>
+      <div class="skill-row"><span>Language:</span> Fluent English (TOEIC 895)</div>
+      <div class="skill-row"><span>Visa:</span> WHV 417 (Immediate Start)</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
     
-    <!-- QR CODE BLOCK -->
-    <div class="header-qr">
-      <!-- 讀取與 HTML 檔案放在同一資料夾下的 yhw_ENportfolioQRcode.png -->
-      <img src="yhw_ENportfolioQRcode.png" alt="Scan Portfolio QR" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://peteryuan.github.io'">
-      <div class="header-qr-text">Scan Portfolio</div>
+    <div class="job">
+      <div class="job-header">
+        <span>Kitchen Hand &amp; Line Prep</span>
+        <span>Sep 2026 — Oct 2026</span>
+      </div>
+      <div class="job-subheader">
+        <span>Laolin Cafe (酪林咖啡) · Taoyuan, Taiwan</span>
+        <span>Full-time</span>
+      </div>
+      <ul>
+        <li>Prepared gourmet brunch items, Nordic open sandwiches, pasta orders, and signature sauces.</li>
+        <li>Executed precision knife styling including avocado roses, egg rolls, and meat trimming.</li>
+        <li>Maintained kitchen station cleanliness, daily prep stock control, and efficient wash-up workflows.</li>
+      </ul>
     </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span>Lead Barista &amp; All-Rounder</span>
+        <span>Nov 2025 — Apr 2026</span>
+      </div>
+      <div class="job-subheader">
+        <span>2Gather Café · Taoyuan, Taiwan</span>
+        <span>Full-time</span>
+      </div>
+      <ul>
+        <li>Managed daily espresso machine dial-in, pour-over extraction, and milk texturing for peak hours.</li>
+        <li>Baked signature desserts in-house (Basque cheesecakes, frosted chiffon cakes) to increase sales.</li>
+        <li>Optimized stock ordering and inventory tracking systems to reduce peak-hour material shortages.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span>Shift Lead / Assistant Manager</span>
+        <span>May 2026 — Aug 2026</span>
+      </div>
+      <div class="job-subheader">
+        <span>Milksha (迷客夏) · Taoyuan, Taiwan</span>
+        <span>Full-time</span>
+      </div>
+      <ul>
+        <li>Led shift floor operations, fast order processing under heavy rush, and strict hygiene compliance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div style="display: flex; justify-content: space-between; font-size: 8.5pt; color: #334155;">
+      <span><strong>Bachelor of Business Administration</strong> — National Chung Cheng University</span>
+      <span>2020 — 2024</span>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════ PAGE 2: PORTFOLIO (背面：10張作品照片) ════════════════ -->
+<div class="page page-break">
+  <div class="portfolio-header">
+    <h2>PETER YUAN · VISUAL PORTFOLIO</h2>
+    <p>Selected Proof of Barista Craft, Kitchen Line Prep &amp; In-House Baking</p>
   </div>
 
-  <div class="content">
-
-    <!-- FAST WALK-IN INFO BANNER (FOR MANAGERS) -->
-    <div class="walkin-banner">
-      <div class="banner-item">
-        <div class="banner-label">Visa Status</div>
-        <div class="banner-val">WHV 417 (Full Work)</div>
-      </div>
-      <div class="banner-item">
-        <div class="banner-label">Availability</div>
-        <div class="banner-val">Immediate (7 Days)</div>
-      </div>
-      <div class="banner-item">
-        <div class="banner-label">English Level</div>
-        <div class="banner-val">Fluent (TOEIC 895)</div>
-      </div>
-      <div class="banner-item">
-        <div class="banner-label">Trial Ready</div>
-        <div class="banner-val">Yes (Any Shift)</div>
+  <div class="gallery-grid-10">
+    
+    <!-- 1. Avocado Rose Prep -->
+    <div class="gallery-card">
+      <img src="avocado.jpg" alt="Avocado Rose Prep" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Avocado+Rose'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">1. Kitchen Prep</div>
+        <div class="gallery-card-desc">Precision avocado rose knife styling[cite: 39].</div>
       </div>
     </div>
 
-    <!-- SUMMARY (ALIGNS WITH 30-SEC PITCH) -->
-    <div class="section">
-      <div class="section-title">Professional Summary</div>
-      <p class="summary-p">
-        Energetic and efficient <strong>Cafe All-Rounder / Barista &amp; Kitchen Hand</strong> with strong hands-on experience in high-volume Taiwanese cafes. Proven skill in <strong>espresso dial-in, milk steaming, and speed latte art</strong>, combined with hot-line cooking and precise knife work (avocado styling, meat prep). Known for fast ticket pacing, hygiene control, and proactive adaptability.
-      </p>
-    </div>
-
-    <!-- CORE SKILLS -->
-    <div class="section">
-      <div class="section-title">Skills &amp; Capabilities</div>
-      <div class="skills-grid">
-        <span class="skill-pill core">Espresso Dial-in</span>
-        <span class="skill-pill core">Layered Latte Art</span>
-        <span class="skill-pill core">Line Prep &amp; Cooking</span>
-        <span class="skill-pill">Manual Pour-over</span>
-        <span class="skill-pill">Knife Skills &amp; Avocado Styling</span>
-        <span class="skill-pill">Food Safety &amp; Wash-up</span>
-        <span class="skill-pill">POS &amp; Cash Handling</span>
-        <span class="skill-pill">Shift Management</span>
+    <!-- 2. Brunch Platter -->
+    <div class="gallery-card">
+      <img src="brunch1.jpg" alt="Brunch Platter" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Brunch'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">2. Brunch Platter</div>
+        <div class="gallery-card-desc">Scrambled eggs, sourdough &amp; smoked salmon[cite: 40].</div>
       </div>
     </div>
 
-    <!-- EXPERIENCE -->
-    <div class="section">
-      <div class="section-title">Work Experience</div>
-
-      <div class="job-block">
-        <div class="job-header-line">
-          <div>
-            <span class="job-title">Kitchen Hand &amp; Line Prep Cook</span>
-            <span class="job-company"> · Avocado Coffee (Taiwan)</span>
-          </div>
-          <span class="job-date">Sep 2026 – Oct 2026</span>
-        </div>
-        <ul class="job-bullets">
-          <li>Prepared gourmet brunch dishes, open toasts, pasta, and egg dishes in high-volume rushes.</li>
-          <li>Handled precision avocado knife styling, meat trimming, sous-vide prep, and kitchen sanitation.</li>
-        </ul>
-      </div>
-
-      <div class="job-block">
-        <div class="job-header-line">
-          <div>
-            <span class="job-title">Shift Lead &amp; Assistant Manager</span>
-            <span class="job-company"> · Milksha (Taiwan)</span>
-          </div>
-          <span class="job-date">May 2026 – Sep 2026</span>
-        </div>
-        <ul class="job-bullets">
-          <li>Managed floor pace, staff shift allocation, inventory ordering, and hygiene compliance.</li>
-        </ul>
-      </div>
-
-      <div class="job-block">
-        <div class="job-header-line">
-          <div>
-            <span class="job-title">Lead Barista &amp; Cafe All-Rounder</span>
-            <span class="job-company"> · 2Gather Cafe (Taiwan)</span>
-          </div>
-          <span class="job-date">Nov 2025 – Apr 2026</span>
-        </div>
-        <ul class="job-bullets">
-          <li>Conducted daily grinder calibration, espresso dial-in, latte art, and pour-over service.</li>
-          <li>Baked in-house desserts (Basque cheesecakes) and optimized POS entry workflow.</li>
-        </ul>
+    <!-- 3. Chocolate Chiffon Cake -->
+    <div class="gallery-card">
+      <img src="cake1.jpg" alt="Chocolate Chiffon Cake" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Chiffon+Cake'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">3. In-House Baking</div>
+        <div class="gallery-card-desc">Chocolate frosted chiffon cake with fresh citrus[cite: 41].</div>
       </div>
     </div>
 
-    <!-- TWO COLUMNS: EDUCATION & HIGHLIGHTS -->
-    <div class="two-col">
-      <div>
-        <div class="section-title">Education</div>
-        <div class="edu-title">Bachelor of Business Administration</div>
-        <div class="edu-sub">National Chung Cheng University (2020 – 2024)</div>
+    <!-- 4. Santa Chiffon Cake -->
+    <div class="gallery-card">
+      <img src="cake2.jpg" alt="Santa Chiffon Cake" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Santa+Cake'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">4. Pastry Decor</div>
+        <div class="gallery-card-desc">Specialty holiday cake design with strawberry Santa[cite: 42].</div>
       </div>
-      <div>
-        <div class="section-title">Key Advantages</div>
-        <div class="edu-title">Flemington Local Resident</div>
-        <div class="edu-sub">Easy commute to CBD &amp; Northern Suburbs</div>
+    </div>
+
+    <!-- 5. Fresh Cheese Cake -->
+    <div class="gallery-card">
+      <img src="cake3.jpg" alt="Fresh Cheese Cake" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Cheesecake'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">5. Counter Dessert</div>
+        <div class="gallery-card-desc">Fresh citrus-layered chilled cheesecake[cite: 43].</div>
+      </div>
+    </div>
+
+    <!-- 6. Basque Cheesecake -->
+    <div class="gallery-card">
+      <img src="cake4.jpg" alt="Basque Cheesecake" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Basque'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">6. Scratch Baking</div>
+        <div class="gallery-card-desc">Caramelized-top authentic Basque burnt cheesecake[cite: 44].</div>
+      </div>
+    </div>
+
+    <!-- 7. Pasta & Risotto Line -->
+    <div class="gallery-card">
+      <img src="pasta1.jpg" alt="Pasta & Risotto Line" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Pasta'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">7. Hot Kitchen Line</div>
+        <div class="gallery-card-desc">Gourmet pasta and risotto hot-line execution[cite: 45].</div>
+      </div>
+    </div>
+
+    <!-- 8. Prawn & Avocado Toast -->
+    <div class="gallery-card">
+      <img src="sandwich1.jpg" alt="Open Sandwich" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Open+Toast'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">8. Cafe Brunch Line</div>
+        <div class="gallery-card-desc">Prawn and avocado open sourdough toast presentation[cite: 46].</div>
+      </div>
+    </div>
+
+    <!-- 9. Latte Art Tulip -->
+    <div class="gallery-card">
+      <img src="latte1_2.jpg" alt="Latte Art Tulip" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Latte+Art'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">9. Barista Craft</div>
+        <div class="gallery-card-desc">Multi-tier tulip pour on specialty espresso[cite: 47].</div>
+      </div>
+    </div>
+
+    <!-- 10. Free Pour Heart -->
+    <div class="gallery-card">
+      <img src="latte5_3.jpg" alt="Free Pour Heart" onerror="this.src='https://placehold.co/300x300/e2e8f0/0f172a?text=Heart+Pour'">
+      <div class="gallery-card-info">
+        <div class="gallery-card-title">10. Espresso Bar</div>
+        <div class="gallery-card-desc">Layered rosetta &amp; heart free-pour on hot chocolate[cite: 48].</div>
       </div>
     </div>
 
   </div>
+</div>
 
 </body>
 </html>
